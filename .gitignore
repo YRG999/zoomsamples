@@ -1,0 +1,4 @@
+_notes/
+.env
+.DS_Store
+/venv
