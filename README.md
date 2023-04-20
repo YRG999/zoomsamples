@@ -16,7 +16,7 @@ Install requirements.
 pip install -r requirements.txt
 ```
 
-Create a Zoom account and a Server-to-server OAuth app.
+[Create a Zoom account](https://marketplace.zoom.us/) and a [Server-to-server OAuth app](https://developers.zoom.us/docs/internal-apps/).
 
 Copy `.env.example` and rename to `.env` and enter your keys.
 
