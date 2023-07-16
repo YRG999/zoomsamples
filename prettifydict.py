@@ -1,8 +1,8 @@
 import ast
 import json
 
-# Prompt for a dictionary string
-dict_str = input("Please enter a Python dictionary string:\n")
+# Prompt for a dictionary or list of dictionaries string
+dict_str = input("Enter a Python dictionary or list of dictionaries string:\n")
 
 # Parse the string as a Python dictionary
 dict_data = ast.literal_eval(dict_str)

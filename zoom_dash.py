@@ -37,6 +37,7 @@ def get_participants(meeting_id):
 
 # Get a list of all meetings
 meetings = get_meetings()
+# print(meetings)
 
 # For each meeting, get a list of all participants and print their names
 for meeting in meetings:
