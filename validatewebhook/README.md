@@ -65,7 +65,7 @@ To run this on Heroku, you need to do the following steps:
     e. Push your code to Heroku:
 
     ```bash
-    git push heroku master
+    git push heroku main
     ```
 
 4. **Open your application**: You can open your application by running `heroku open`, or by visiting the application URL that Heroku returned when you created the new app.
