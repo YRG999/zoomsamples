@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 access_token = os.getenv("ZOOM_ACCESSTOKEN")
 
-# Set up the API endpoint to query
-endpoint = "https://api.zoom.us/v2/users/your_user_id"
+# Set up the API endpoint to query (this gets your user info)
+endpoint = "https://api.zoom.us/v2/users/me"
 
 # Set up the headers with the access token
 headers = {
