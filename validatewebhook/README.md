@@ -1,10 +1,9 @@
 # ChatGPT readme
 Notes from ChatGPT.
 
-- [ChatGPT readme](#chatgpt-readme)
-  - [Deploy to Heroku](#deploy-to-heroku)
-  - [Store securely in database](#store-securely-in-database)
-  - [Store raw in database](#store-raw-in-database)
+- [Deploy to Heroku](#deploy-to-heroku)
+- [Store securely in database](#store-securely-in-database)
+- [Store raw in database](#store-raw-in-database)
 
 ## Deploy to Heroku
 
