@@ -1,5 +1,9 @@
 _notes/
+_workinprogress/
 .env
 .DS_Store
 /venv
 .vscode/
+node_modules/
+package-lock.json
+package.json
