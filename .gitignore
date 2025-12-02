@@ -7,3 +7,4 @@ _workinprogress/
 node_modules/
 package-lock.json
 package.json
+responses/
