@@ -7,7 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-02-20
+
+### Fixed
+
+- `request_handler.py`: Removed unreachable `if not tokens:` guard in `_refresh_tokens()`. `refresh_access_token()` always raises on failure or returns a valid dict, so the branch was dead code.
+- `access_request.py`: Fixed stale import in `__main__` block — `from makeRequest import get_user_info` corrected to `from request_handler import get_user_info`.
+
+## [1.1.0] - 2026-02-19
+
 ### Added
+
 - Created `credentials.py` as a standalone utility for managing environment variables.
 - Added support for **1Password secret references** (`op://`) in the `.env` file.
 - Automatically resolves 1Password secrets using the `op` CLI.
@@ -23,12 +33,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.1] - 2025-12-02
 
 ### Changed
+
 - Major update to `.env.example`.
 - Extensive file updates and structural improvements (currently in testing).
 
 ## [1.0.0] - 2024-09-06
 
 ### Added
+
 - Initial project structure with Zoom API samples.
 - OAuth 2.0 authorization flow (`access_request.py`).
 - Server-to-Server (S2S) OAuth support (`S2Saccesstoken.py`, `S2Srequest.py`).
@@ -38,10 +50,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic CLI for interaction (`zoom_cli.py`).
 
 ### Changed
+
 - Improved `.gitignore` for security.
 - Updated documentation and requirements.
 
 ## [0.1.0] - 2023-04-19
 
 ### Added
+
 - First commit with basic Zoom API request samples and README.

@@ -107,7 +107,7 @@ def refresh_access_token(client_id, client_secret, refresh_token):
 
 # --- Main workflow ---
 if __name__ == "__main__":
-    from makeRequest import get_user_info
+    from request_handler import get_user_info
 
     if not access_token or not refresh_token:
         print("No access or refresh token found. Please authorize the application first.")

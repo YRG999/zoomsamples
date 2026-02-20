@@ -1,5 +1,4 @@
 # request_handler.py
-# --- NEED TO TEST ---  
 # Usage: Centralized request handling for Zoom API interactions
 
 import requests
@@ -24,8 +23,6 @@ def _refresh_tokens():
         access_request.client_secret,
         access_request.refresh_token,
     )
-    if not tokens:
-        raise RuntimeError("Failed to refresh access token.")
     access_request.access_token = tokens["access_token"]
     access_request.refresh_token = tokens["refresh_token"]
     return tokens
