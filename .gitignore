@@ -2,7 +2,8 @@ _notes/
 _workinprogress/
 .env
 .DS_Store
-/venv
+venv/
+.venv/
 .vscode/
 node_modules/
 package-lock.json

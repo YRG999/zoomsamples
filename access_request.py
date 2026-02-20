@@ -6,17 +6,17 @@ import requests
 import base64
 import os
 import urllib.parse
-from dotenv import load_dotenv, set_key
+from credentials import get_credentials
+from dotenv import set_key
 
-# Load environment variables from .env file
+# Load environment variables path
 env_path = os.path.join(os.path.dirname(__file__), '.env')
-load_dotenv(env_path)
 
-client_id = os.getenv('CLIENT_ID')
-client_secret = os.getenv('CLIENT_SECRET')
-redirect_uri = os.getenv('REDIRECT_URI')
-access_token = os.getenv('ACCESS_TOKEN')
-refresh_token = os.getenv('REFRESH_TOKEN')
+client_id = get_credentials('CLIENT_ID')
+client_secret = get_credentials('CLIENT_SECRET')
+redirect_uri = get_credentials('REDIRECT_URI')
+access_token = get_credentials('ACCESS_TOKEN')
+refresh_token = get_credentials('REFRESH_TOKEN')
 
 
 # --- Utility: Encode client credentials ---

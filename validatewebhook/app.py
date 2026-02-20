@@ -3,13 +3,18 @@ import hashlib
 import hmac
 import os
 import logging
+import sys
+
+# Add parent directory to sys.path to find credentials.py
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from credentials import get_credentials
 
 app = Flask(__name__)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
-YOUR_WEBHOOK_SECRET = os.getenv("YOUR_WEBHOOK_SECRET")
+YOUR_WEBHOOK_SECRET = get_credentials("YOUR_WEBHOOK_SECRET")
 
 @app.route('/zoom-webhook', methods=['POST'])
 def validate_webhook():

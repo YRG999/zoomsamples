@@ -1,10 +1,9 @@
 import requests
 import os
-from dotenv import load_dotenv
+from credentials import get_credentials
 
 # Enter access token
-load_dotenv()
-access_token = os.getenv("ZOOM_ACCESSTOKEN")
+access_token = get_credentials("ZOOM_ACCESSTOKEN")
 
 # Set up the base URL for API requests
 base_url = "https://api.zoom.us/v2"

@@ -1,13 +1,12 @@
 import requests
 import base64
 import os
-from dotenv import load_dotenv
+from credentials import get_credentials
 
 # Set up the API credentials
-load_dotenv()
-client_id = os.getenv("ZOOM_CLIENTID")
-client_secret = os.getenv("ZOOM_CLIENTSECRET")
-account_id = os.getenv("ZOOM_ACCOUNTID")
+client_id = get_credentials("ZOOM_CLIENTID")
+client_secret = get_credentials("ZOOM_CLIENTSECRET")
+account_id = get_credentials("ZOOM_ACCOUNTID")
 
 # Encode the client ID and secret in base64 format
 auth_string = f"{client_id}:{client_secret}"

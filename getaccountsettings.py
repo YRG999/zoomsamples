@@ -5,13 +5,13 @@
 from access_request import access_token, client_id, client_secret, refresh_token, refresh_access_token
 import requests
 import os
-from dotenv import load_dotenv, set_key
+from credentials import get_credentials
+from dotenv import set_key
 
-# Load environment variables from .env file
+# Load environment variables path
 env_path = os.path.join(os.path.dirname(__file__), '.env')
-load_dotenv(env_path)
 
-account_id = os.getenv('ACCOUNT_ID')
+account_id = get_credentials('ACCOUNT_ID')
 
 # Ask user if ACCOUNT_ID is missing
 if not account_id:

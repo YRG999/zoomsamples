@@ -1,51 +1,91 @@
-# Zoom samples
+# Zoomsamples
 
-Samples for the Zoom developer platform.
+> Samples for the Zoom developer platform.
 
-## Setup
+This repository provides a collection of Python scripts to interact with the Zoom API, covering OAuth flows, Server-to-Server OAuth, meeting data retrieval, and webhook validation. It also includes a CLI for easy testing.
 
-1. Create a virtual environment.
+## Table of Contents
 
-    ```zsh
-    python3 -m venv venv
-    . venv/bin/activate
-    ```
+- [Background](#background)
+- [Install](#install)
+- [Usage](#usage)
+- [API](#api)
+- [Contributing](#contributing)
 
-2. Install requirements.
+## Background
 
-    ```zsh
-    pip install -r requirements.txt
-    ```
+This project serves as a reference for developers looking to integrate Zoom's API into their Python applications. It demonstrates various authentication methods (OAuth 2.0, Server-to-Server OAuth) and common API tasks like fetching meeting data and validating webhooks.
 
-3. [Create a Zoom account](https://marketplace.zoom.us/) and a [Server-to-server OAuth app](https://developers.zoom.us/docs/internal-apps/).
+## Install
 
-4. Copy `.env.example` and rename to `.env`, then fill in your keys.
+### Prerequisites
 
-## File guide
+- [1Password CLI](https://developer.1password.com/docs/cli/) (optional, if using secret references)
+- [Python 3](https://www.python.org/downloads/)
+- [Zoom Account](https://marketplace.zoom.us/) and a [Server-to-server OAuth app](https://developers.zoom.us/docs/internal-apps/)
 
-| File | Description | Run |
-| --- | --- | --- |
-| `access_request.py` | OAuth helper that exchanges and refreshes tokens. | `python access_request.py` |
-| `request_handler.py` | Shared request utilities that reuse stored tokens. | Imported |
-| `zoom_cli.py` | Interactive CLI for authorization and API calls. | `python zoom_cli.py` |
-| `getaccountsettings.py` | Fetches account settings with automatic token refresh. | `python getaccountsettings.py` |
-| `zoom_dash.py` | Lists meetings and participants for the current user. | `python zoom_dash.py` |
-| `S2Saccesstoken.py` | Obtains an access token for Server-to-Server OAuth. | `python S2Saccesstoken.py` |
-| `S2Srequest.py` | Sample GET request using a Server-to-Server token. | `python S2Srequest.py` |
-| `validatewebhook/app.py` | Flask webhook validator for Zoom URL verification. | `python validatewebhook/app.py` |
-| `prettifydict.py` | Converts dict strings into pretty-printed JSON. | `python prettifydict.py` |
+### Setup
 
-## Quick start: Zoom CLI
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YRG999/zoomsamples.git
+   cd zoomsamples
+   ```
 
-1. Ensure dependencies are installed and `.env` includes `CLIENT_ID`, `CLIENT_SECRET`, and `REDIRECT_URI`.
-2. Launch the CLI menu:
+2. Create and activate a virtual environment:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
 
-    ```zsh
-    python zoom_cli.py
-    ```
+3. Install requirements:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Pick an action:
-    - `1` Authorize (open the URL, supply the code; tokens persist to `.env`).
-    - `2` Retrieve current user info.
-    - `3` Refresh stored tokens.
-    - `4` Run a custom request (enter method, endpoint, optional JSON query params).
+4. Configure environment variables:
+   Copy `.env.example` to `.env` and fill in your keys. You can use 1Password secret references (e.g., `op://vault/item/field`) if the 1Password CLI is installed.
+
+## Usage
+
+### Zoom CLI
+
+The easiest way to explore the API samples is through the interactive CLI:
+
+```bash
+python zoom_cli.py
+```
+
+Options include:
+1. **Authorize**: Opens the OAuth URL, exchanges the code for tokens, and persists them to `.env`.
+2. **Get user info**: Retrieves and displays information for the currently authorized user.
+3. **Refresh tokens**: Manually refreshes the stored access token.
+4. **Custom request**: Executes a custom HTTP request against the Zoom API.
+
+### Individual Scripts
+
+Scripts can also be run individually for specific tasks:
+
+- **Server-to-Server OAuth**: `python S2Saccesstoken.py` or `python S2Srequest.py`
+- **Meeting Data**: `python zoom_dash.py`
+- **Webhook Validation**: `python validatewebhook/app.py`
+
+## API
+
+| Script | Purpose |
+| --- | --- |
+| `access_request.py` | OAuth 2.0 helper for token exchange and refresh. |
+| `request_handler.py` | Shared utilities for Zoom API requests with automatic token handling. |
+| `credentials.py` | Standalone utility to resolve secrets from `.env` or 1Password. |
+| `getaccountsettings.py` | Fetches account-level settings. |
+| `zoom_dash.py` | Lists meetings and participants for the current user. |
+| `S2Saccesstoken.py` | Obtains S2S OAuth access tokens. |
+| `S2Srequest.py` | Example GET request using S2S OAuth. |
+| `validatewebhook/app.py` | Flask application to validate Zoom webhook CRC requests. |
+| `prettifydict.py` | Helper to pretty-print dictionary strings as JSON. |
+
+## Contributing
+
+PRs accepted.
+
+Small note: If editing the README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.

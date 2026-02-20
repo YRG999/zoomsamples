@@ -1,10 +1,9 @@
 import requests
 import os
-from dotenv import load_dotenv
+from credentials import get_credentials
 
 # Enter access token. Can also be used for Video SDK JWT Token
-load_dotenv()
-access_token = os.getenv("ZOOM_ACCESSTOKEN")
+access_token = get_credentials("ZOOM_ACCESSTOKEN")
 
 # Set up the API endpoint to query (this gets your user info)
 endpoint = "https://api.zoom.us/v2/users/me"
